@@ -1,4 +1,4 @@
- ![Pantalla 1](https://github.com/adricastro249/appTasks/tree/master/public/images/1.png) 
+ ![Pantalla 1](http://url/to/1.png) 
 
 
 
