@@ -1,4 +1,4 @@
- ![Pantalla 1](http://url/to/1.png) 
+ ![Pantalla 1](public/images/1.png) 
 
 
 
