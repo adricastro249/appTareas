@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, * as react from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,7 +7,7 @@ import { todos } from './todos.json';
 import TodosForm from './components/TodosForm';
 
 
-class App extends Component{
+class App extends react.Component{
 constructor (){
 super();
 this.state = {
@@ -32,6 +32,8 @@ removeTodo(index){
   }
 } 
 
+
+
   render(){
    const todos = this.state.todos.map((todo, i) => {
       return(
@@ -46,10 +48,17 @@ removeTodo(index){
           <div className="card-body">
 
       <p><strong>Description:</strong> {todo.description}</p>
-      <p><strong>Responsable:</strong> {todo.responsible}</p>
+      <p><strong>Responsible:</strong> {todo.responsible}</p>
           </div>
           <div className="card-footer">
+
+          <div class="d-flex justify-content-around">
+   
             <button className="btn btn-danger" onClick={this.removeTodo.bind(this, i)}>Delete</button>
+            
+                <div class="input-group-text"><i class="fas fa-pencil-alt" id="show"></i></div>
+          
+              </div>
           </div>
         </div>
         </div>
@@ -67,7 +76,9 @@ Tasks
   {this.state.todos.length}
 </span> 
     </a>
-    </nav>
+     </nav>
+
+
 <div className="container">
   <div className="row mt-4">
   <div className="col-md-4 text-center">

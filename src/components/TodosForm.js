@@ -11,6 +11,7 @@ class TodosForm extends Component {
         };
         this.handelInput = this.handelInput.bind(this);
         this.handelSubmit = this.handelSubmit.bind(this);
+    
         }
    
    
@@ -24,14 +25,19 @@ handelInput(e){
 handelSubmit(e){
     e.preventDefault();
   this.props.onAddTodo(this.state);
-    console.log('enviando la data');
 }
+
+formReset()
+{
+document.getElementById("myForm").reset();
+}
+
 
     render(){ 
 return( 
 
     <div className="card">
-        <form className="card-body" onSubmit={this.handelSubmit}>
+        <form className="card-body" onSubmit={this.handelSubmit} id="myForm">
             <div className="form-group">
                 <input type="text"
                 name="title"
@@ -58,18 +64,21 @@ return(
                 <select 
                   name="priority"
                   className="form-control"
-                  onChange={this.handelInput}
-                  >
-<option>low</option>
+                  onChange={this.handelInput}>
+                <option>low</option>
               <option>medium</option>
               <option>high</option>
 
                   </select>
             </div>
+<div>
+<div class="d-flex justify-content-around">
+<button className="btn btn-danger" type="reset" value="Reset"  onclick="formReset()">Clean</button>
+            <button type="submit" className="btn btn-success">Save</button>
+          <button type="search" className="btn btn-primary">Search</button>
+          </div>
 
-            <button type="submit" className="btn btn-primary">
-            Save
-          </button>
+</div>
 
         </form>
     </div>
