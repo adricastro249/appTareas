@@ -1,5 +1,6 @@
  ![Pantalla 1](public/images/1.png) 
-
+ ![Pantalla 2](public/images/2.png) 
+![Pantalla 3](public/images/3.png) 
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
