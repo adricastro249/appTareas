@@ -9,7 +9,8 @@ class TodosForm extends Component {
     description: '',
     priority: 'low',
         };
-        this.handelInput = this.handelInput.bind(this)
+        this.handelInput = this.handelInput.bind(this);
+        this.handelSubmit = this.handelSubmit.bind(this);
         }
    
    
@@ -18,12 +19,12 @@ handelInput(e){
     this.setState({
 [name]:value
     } )
-    console.log(this.state);
 }
 
 handelSubmit(e){
     e.preventDefault();
-    console.log()
+  this.props.onAddTodo(this.state);
+    console.log('enviando la data');
 }
 
     render(){ 

@@ -12,16 +12,30 @@ constructor (){
 super();
 this.state = {
 todos : todos
-}
+};
+this.handleAddTodo = this.handleAddTodo.bind(this);
 }
 
 
+handleAddTodo(todo){ 
+  this.setState({
+    todos:[...this.state.todos, todo]
+  })
+}
+removeTodo(index){
+  if (window.confirm ('Estás seguro de querer eliminar?' )) {
+    this.setState({
+      todos: this.state.todos.filter ((e, i) => {
+        return i !== index
+      })
+    })
+  }
+} 
 
   render(){
-
    const todos = this.state.todos.map((todo, i) => {
       return(
-        <div className="col-md-4">
+        <div className="col-md-4" key={i}>
         <div className="card mt-4">
           <div className="cad-header"> 
           <h3>{todo.title}</h3>
@@ -33,6 +47,9 @@ todos : todos
 
       <p><strong>Description:</strong> {todo.description}</p>
       <p><strong>Responsable:</strong> {todo.responsible}</p>
+          </div>
+          <div className="card-footer">
+            <button className="btn btn-danger" onClick={this.removeTodo.bind(this, i)}>Delete</button>
           </div>
         </div>
         </div>
@@ -52,17 +69,11 @@ Tasks
     </a>
     </nav>
 <div className="container">
-
-
-
   <div className="row mt-4">
-
   <div className="col-md-4 text-center">
                 <img src={logo} className="App-logo" alt="logo" />
               <TodosForm onAddTodo={this.handleAddTodo}></TodosForm>
             </div>
-
-
             <div className="col-md-8">
               <div className="row">
     {todos}
@@ -73,8 +84,6 @@ Tasks
     </div>
 
 );
-
-
   }
 }
 export default App;
