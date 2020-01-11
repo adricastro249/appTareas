@@ -4,7 +4,7 @@
 
 
 .App-logo {
-  height: 15vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -15,8 +15,6 @@
 }
 
 
-
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -24,4 +22,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+ .header, .footer{
+  background-color: rgba(0,0,0, .5);
+  padding: 20px;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+}
+
+
+.footer{
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  width: 100%;
 }

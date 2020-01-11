@@ -13,6 +13,7 @@ super();
 this.state = {
 todos : todos
 };
+
 this.handleAddTodo = this.handleAddTodo.bind(this);
 }
 
@@ -32,14 +33,12 @@ removeTodo(index){
   }
 } 
 
-
-
   render(){
    const todos = this.state.todos.map((todo, i) => {
       return(
         <div className="col-md-4" key={i}>
         <div className="card mt-4">
-          <div className="cad-header"> 
+          <div className="card-header"> 
           <h3>{todo.title}</h3>
           <span className="badge badge-pill badge-danger ml-2">
 {todo.priority}
@@ -56,7 +55,6 @@ removeTodo(index){
    
             <button className="btn btn-danger" onClick={this.removeTodo.bind(this, i)}>Delete</button>
             
-                <div class="input-group-text"><i class="fas fa-pencil-alt" id="show"></i></div>
           
               </div>
           </div>
@@ -68,6 +66,12 @@ removeTodo(index){
 
   return (
 <div className="App"> 
+
+<div className="header d-flex d-flex justify-content-center">
+ <h1>Task App - Reactjs</h1>
+ <img src={logo} className="App-logo" alt="logo" />
+</div>
+
 
 <nav className="navbar navbar-dark bg-dark">
 <a href=" " className="text-white">
@@ -82,7 +86,7 @@ Tasks
 <div className="container">
   <div className="row mt-4">
   <div className="col-md-4 text-center">
-                <img src={logo} className="App-logo" alt="logo" />
+              
               <TodosForm onAddTodo={this.handleAddTodo}></TodosForm>
             </div>
             <div className="col-md-8">
@@ -92,6 +96,12 @@ Tasks
     </div>
     </div>
     </div>
+
+
+    <div className="footer">
+ <p>by @adricastro249 - 2020</p> 
+</div>
+
     </div>
 
 );

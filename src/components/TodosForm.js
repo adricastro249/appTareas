@@ -20,16 +20,21 @@ handelInput(e){
     this.setState({
 [name]:value
     } )
+
+
 }
 
 handelSubmit(e){
     e.preventDefault();
   this.props.onAddTodo(this.state);
+
 }
 
-formReset()
+formReset(e)
 {
-document.getElementById("myForm").reset();
+    e.preventDefault();
+    this.props.onAddTodo(this.state).reset();
+//document.getElementById("myForm").reset();
 }
 
 
@@ -43,12 +48,14 @@ return(
                 name="title"
                 onChange={this.handelInput}
                 className="form-control"
+              
                 placeholder="Title"/>
             </div>
             <div className="form-group">
             <input type="text"
                 name="responsible"
                 className="form-control"
+              
                 placeholder="Responsible"
                 onChange={this.handelInput}/>
             </div>
@@ -56,6 +63,7 @@ return(
             <input type="text"
                 name="description"
                 className="form-control"
+              
                 placeholder="Description"
                 onChange={this.handelInput}
                 />
@@ -64,6 +72,7 @@ return(
                 <select 
                   name="priority"
                   className="form-control"
+                
                   onChange={this.handelInput}>
                 <option>low</option>
               <option>medium</option>
@@ -75,7 +84,6 @@ return(
 <div class="d-flex justify-content-around">
 <button className="btn btn-danger" type="reset" value="Reset"  onclick="formReset()">Clean</button>
             <button type="submit" className="btn btn-success">Save</button>
-          <button type="search" className="btn btn-primary">Search</button>
           </div>
 
 </div>
